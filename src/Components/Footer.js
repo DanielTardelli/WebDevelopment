@@ -6,7 +6,7 @@ const Footer = (props) => {
     const ref = useRef(null);
 
     return(
-        <div ref={ref} style={{flexShrink: 0}}>
+        <div ref={ref}>
             {props.children}
         </div>
     )

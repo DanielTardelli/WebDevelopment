@@ -1,9 +1,10 @@
-import { Box, Container, Grid, Typography, Card, CardMedia, CardContent, Divider } from "@mui/material";
+import { Box, Container, Grid, Typography, Card, CardMedia, CardContent, Divider, Stack } from "@mui/material";
 import { makeStyles } from '@mui/styles'
 import { Link } from "react-router-dom";
 import Footer from "../Components/Footer";
 
 import CustomCard from "../Components/CustomCard";
+import StackDropdown from "../Components/StackDropdown";
 
 import mainImage from '../Assets/HomePageCenter.jpg'
 import cardImage1 from '../Assets/CogsTurning.jpg'
@@ -27,14 +28,19 @@ const styles = makeStyles({
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: 'auto'
+    },
+    center: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 })
 
 const Home = () => {
     const classes = styles();
     return(
-        <div style={{height: '100%'}}>
-            <div style={{minHeight: 'calc(100vh - 260px)'}}>
+        <div style={{height: '100%', display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
+            <div style={{flex: 1}}>
                 <Box
                 width="100%">
                     <Grid container justifyContent="center" className={classes.outerBox}>
@@ -42,9 +48,8 @@ const Home = () => {
                     </Grid>
                 </Box>
                 <Box
-                width="100%"
-                height="1000px">
-                    <Grid container justifyContent="center" marginTop="40px">
+                sx={{flexGrow: 1}}>
+                    <Grid container justifyContent="center" marginTop="40px" sx={{display: {xs: 'none', sm: 'none', md: 'flex'}}}>
                         <CustomCard wwidth={300}>
                             <CardMedia
                                 component="img"
@@ -99,10 +104,36 @@ const Home = () => {
                             </CardContent>
                         </CustomCard>
                     </Grid>
+                    <Stack sx={{ display: {xs: 'flex', sm: 'flex', md: 'none'}}}>
+                        <StackDropdown img={mainImage}>
+
+                        </StackDropdown>
+                        <StackDropdown img={mainImage}>
+
+                        </StackDropdown>
+                        <StackDropdown img={mainImage}>
+
+                        </StackDropdown>
+                    </Stack>
+                    <div style={{paddingTop: 50}}/>
+                    <Container>
+                        <Divider variant="middle"/>
+                    </Container>
+                    <div style={{paddingTop: 50}}/>
+                    <Container sx={{textAlign: 'center'}}>
+                        <Typography textAlign="center" sx={{ typography: { xs: 'h4', sm: 'h3', md: 'h2'}}}>
+                            "Embolden your values, and create your online identity."
+                        </Typography>
+                        <Box sx={{paddingTop: 5, width: '90%', marginLeft: '5%'}}>
+                            <Typography sx={{ typography: {xs: 'body1', sm: 'body1', md: 'h6'}}}>
+                                Hi my name is jeff hi my name is jeff hi my name is jeff hi my name is jeff hi my name is jeff hi my name is jeff hi my name is jeff hi my name is jeff
+                            </Typography>
+                        </Box>
+                    </Container>
                 </Box>
             </div>
             <Footer>
-                <Box sx={{width: "100%", background: "#696969", height: "260px"}} className={classes.footer}>
+                <Box sx={{width: "100%", background: "#696969", height: {xs: '100px', sm: '130px', md: '200px'}}} className={classes.footer}>
                     <Typography style={{fontWeight: 600, letterSpacing: '2px'}}>
                         <Link to={"/"} style={{color: 'white', textDecoration: 'none'}}>DAN'S WEB DEV @ 2023</Link>
                     </Typography>

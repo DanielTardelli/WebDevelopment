@@ -37,6 +37,12 @@ const useStyles = makeStyles({
         width: "fit-content",
         height: "fit-content"
     },
+    footer: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 'auto'
+    }
 })
 
 const ElevationScroll = (props) => {
