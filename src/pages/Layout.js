@@ -5,6 +5,7 @@ import { makeStyles } from '@mui/styles';
 import React from "react"
 
 import Dropdown from "../Components/Dropdown"
+import Footer from "../Components/Footer";
 
 const pages = {
     'Products':['Product1', 'Product2', 'Product3'], 
@@ -36,11 +37,6 @@ const useStyles = makeStyles({
         width: "fit-content",
         height: "fit-content"
     },
-    footer: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'bottom'
-    }
 })
 
 const ElevationScroll = (props) => {
@@ -78,13 +74,6 @@ const Layout = () => {
                 </AppBar>
             </ElevationScroll>
             <Outlet/>
-            <Box sx={{width: "100%", background: "#696969", height: "260px"}} className={classes.footer}>
-                <Container style={{position: 'relative'}}>
-                    <Typography style={{position: 'absolute', bottom: 0, left: 0, fontWeight: 600, letterSpacing: '2px'}}>
-                        <Link to={"/"} style={{color: 'white', textDecoration: 'none'}}>DAN'S WEB DEV @ 2023</Link>
-                    </Typography>
-                </Container>
-            </Box>
         </>
     )
 }
